@@ -5,7 +5,7 @@ package org.binwave
   *
   * @param intValue 数値
   */
-class RomanNumeral(intValue: Int) {
+class RomanNumeral(intValue: Int) extends Ordered[RomanNumeral] {
   // ローマ数字は1から3999までしか表すことができない
   require(intValue > 0 && intValue < 4000, s"intValue must be between 1 and 3999. : $intValue")
 
@@ -89,15 +89,7 @@ class RomanNumeral(intValue: Int) {
 
   def /(other: RomanNumeral): RomanNumeral = RomanNumeral(value / other.value)
 
-  def ==(other: RomanNumeral): Boolean = value == other.value
-
-  def >(other: RomanNumeral): Boolean = value > other.value
-
-  def >=(other: RomanNumeral): Boolean = value >= other.value
-
-  def <(other: RomanNumeral): Boolean = value < other.value
-
-  def <=(other: RomanNumeral): Boolean = value <= other.value
+  override def compare(that: RomanNumeral): Int = value.compare(that.value)
 }
 
 object RomanNumeral {
