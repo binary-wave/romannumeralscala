@@ -21,6 +21,15 @@ class RomanNumeral(intValue: Int) {
     */
   def toInt: Int = value
 
+  override def equals(obj: Any): Boolean = {
+    obj match {
+      case RomanNumeral(n) => n == value
+      case _ => false
+    }
+  }
+
+  override def hashCode(): Int = value.hashCode
+
   /**
     * 文字列に変換する
     *
