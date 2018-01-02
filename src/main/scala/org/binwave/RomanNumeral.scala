@@ -111,7 +111,7 @@ object RomanNumeral {
     */
   val MAX = RomanNumeral(3999)
 
-  def apply(int: Int): RomanNumeral = new RomanNumeral(int)
+  def apply(intValue: Int): RomanNumeral = new RomanNumeral(intValue)
 
   def unapply(arg: RomanNumeral): Option[Int] = Some(arg.value)
 }
